@@ -19,7 +19,9 @@ const crearArchivo = async (base, listar, hasta) => {
       console.log(consola);
     }
     const nombreArchivo = `./salida/tabla${base}.txt`;
-    fs.mkdirSync("salida");
+    if(!fs.existsSync("salida")){
+      fs.mkdirSync("salida");
+    }
     fs.writeFileSync(nombreArchivo, salida);
     return `tabla${base}.txt`;
   } catch (error) {
